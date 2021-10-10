@@ -16,20 +16,24 @@ void SimpleTest::case1_testcase(){
        for(i=0;i<Map->Height*Map->Width;i++)
        {
            in>>j;
-           if(j) Map->Cont[i].exist=1;
+           if(j) {
+                Map->Cont[i].exist=1;
+                Map->Cont[i].Color=j-1;
+           }
+
            else Map->Cont[i].exist=0;
            Map->Cont [ i ].x =Map-> From+ Map->Xline(i)* Map->Cont [ i ].Len;
            Map->Cont [ i ].y = Map->From + Map->Yline(i)* Map->Cont [ i ].Len;
        }
        /*Map
-        *  0 1 1 1 1 0
-        *  1 0 0 0 0 1
-        *  1 0 1 1 0 1
-        *  1 0 1 1 0 1
-        *  1 0 0 0 0 1
-        *  1 1 1 1 1 1
+     0 1 2 1 2 0
+     1 0 0 0 0 1
+     3 0 1 1 0 3
+     1 0 1 1 0 1
+     3 0 0 0 0 3
+     0 1 2 2 1 0
         * */
-        QVERIFY(Map->IsCanStraightLink(1,31)==10007);
+       /* QVERIFY(Map->IsCanStraightLink(1,31)==10007);
         QVERIFY(Map->IsCanStraightLink(6,11)==10007);
         QVERIFY(Map->IsCanStraightLink(6,17)==-9);
         QVERIFY(Map->IsCanStraightLink(6,24)==-9);
@@ -38,7 +42,8 @@ void SimpleTest::case1_testcase(){
         QVERIFY(Map->IsCanByLink(6,24)==-7);
         QVERIFY(Map->IsCanTwoCornorLink(1,4)==-6);
         QVERIFY(Map->IsCanTwoCornorLink(32,23)==-9);
-        QVERIFY(Map->IsCanTwoCornorLink(11,24)==0x1007);
+        QVERIFY(Map->IsCanTwoCornorLink(11,24)==0x1007);*/
+        QVERIFY(Map->IsCanLink(12,14)==-9);
 }
 void SimpleTest::case2_testcase(){
     int i,j;

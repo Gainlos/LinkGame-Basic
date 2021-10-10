@@ -116,13 +116,33 @@ void MapClass::IsNotHint()//用于判定游戏是否结束或者无解
     }
     if(!HintFlag&&(!ExistFlag))//无方块
     {
-        QMessageBox::information(this,"Game Over","Game Over!   You Win!!");
-        this -> close();
+        if(IsDoubleMode)
+        //QMessageBox::information(this,"Game Over","Game Over!   You Win!!");
+        {
+            if(Score1>Score2)
+                QMessageBox::information(this,"Game Over","Game Over!   Player One Win!!");
+            else if(Score1==Score2)
+                QMessageBox::information(this,"Game Over","Game Over!   You Two Are Equal!!");
+            else if(Score1<Score2)
+                QMessageBox::information(this,"Game Over","Game Over!   Player Two Win!!");
+        }
+        else QMessageBox::information(this,"Game Over","Game Over!   You Win!!");
+        ClearPLine();
+        IsOrigin = true;
+        ClearMap();//清空游戏界面
+        ShowBeginLabel();//返回主界面
+        LeftTimer -> stop();//停止刷新与倒计时
+        PropTime -> stop();
     }
     if(!HintFlag&&ExistFlag)//无连接
     {
         QMessageBox::information(this,"Game Over","Game Over!   You Lost!!");
-        this -> close();
+        ClearPLine();
+        IsOrigin = true;
+        ClearMap();//清空游戏界面
+        ShowBeginLabel();//返回主界面
+        LeftTimer -> stop();//停止刷新与倒计时
+        PropTime -> stop();
     }
 }
 void MapClass::IsTimeOver()//用于判定倒计时是否结束
@@ -130,7 +150,12 @@ void MapClass::IsTimeOver()//用于判定倒计时是否结束
     if(LeftTime<= 1)
     {
         QMessageBox::information(this,"GameOver","Game Over!  You  Lost!!");
-        this -> close();
+        ClearPLine();
+        IsOrigin = true;
+        ClearMap();//清空游戏界面
+        ShowBeginLabel();//返回主界面
+        LeftTimer -> stop();//停止刷新与倒计时
+        PropTime -> stop();
     }
 }
 void MapClass::paintEvent(QPaintEvent *)//用于画图，同时也是本游戏的图像核心

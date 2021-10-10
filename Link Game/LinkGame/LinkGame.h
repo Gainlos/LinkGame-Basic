@@ -46,7 +46,7 @@ public:
         int Color = 0;
        // Point(int i, int j):x(i),y(j){};
     };
-    static const int Height = 6, Width = 6;// 分别表示行和列
+    static const int Height = 3, Width = 6;// 分别表示行和列
     static const int From = 150;//用于改动方块的初始位置
     static const int Length = 30;
 
