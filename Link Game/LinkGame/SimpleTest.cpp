@@ -41,7 +41,27 @@ void SimpleTest::case1_testcase(){
         QVERIFY(Map->IsCanTwoCornorLink(11,24)==0x1007);
 }
 void SimpleTest::case2_testcase(){
-
+    int i,j;
+    QFile file("Map1.txt");//加载地图1
+    file.open(QIODevice::ReadOnly);
+    QTextStream in (&file);
+    for(i=0;i<Map->Height*Map->Width;i++)
+    {
+        in>>j;
+        if(j) Map->Cont[i].exist=1;
+        else Map->Cont[i].exist=0;
+        Map->Cont [ i ].x =Map-> From+ Map->Xline(i)* Map->Cont [ i ].Len;
+        Map->Cont [ i ].y = Map->From + Map->Yline(i)* Map->Cont [ i ].Len;
+    }
+    /*Map
+     *  0 1 1 1 1 0
+     *  1 1 1 1 1 1
+     *  1 1 1 1 1 1
+     *  1 1 1 1 1 1
+     *  1 1 1 1 1 1
+     *  1 1 1 1 1 1
+     * */
+    QVERIFY(Map->IsCanStraightLink(1,31)==-9);
 }
 
-//QTEST_MAIN(SimpleTest)
+QTEST_MAIN(SimpleTest)

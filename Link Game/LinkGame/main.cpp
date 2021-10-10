@@ -2,7 +2,7 @@
 
 #include "LinkGame.h"
 
-int main(int argc, char *argv[])
+/*int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     TimeKeeper Timer;
@@ -12,4 +12,4 @@ int main(int argc, char *argv[])
     Map.ShowBeginLabel();
     Map.show();
     return app.exec();
-}
+}*/
