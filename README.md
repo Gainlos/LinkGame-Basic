@@ -9,4 +9,7 @@
 - Press 'T' for LoadMapMode
 - Press 'Esc' for Return to the Main Menu
 - Press 'Q' for Quit the Game
+- Touch "Yellow Block" for shuffle
+- Touch "Dark Yellow Block" for  Hint
+- Touch "Green Block" for +30s
 
