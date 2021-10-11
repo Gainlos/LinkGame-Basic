@@ -1,0 +1,10 @@
+release/figure.o
+release/linktest.o
+release/main.o
+release/mainwindow.o
+release/menu.o
+release/qlink.o
+release/qrc_res.o
+release/moc_linktest.o
+release/moc_mainwindow.o
+release/moc_menu.o
